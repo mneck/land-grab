@@ -30,16 +30,27 @@ Typical map layout
 >` `
 
 `W W W W W W W W W W W W`
+>
 `W L L L W W L W L W L W`
+>
 `W L L L L L L L L L L W`
+>
 `W W L L L L L L L L L W`
+>
 `W L L L M L F M L L W W`
+>
 `W L L L F M L M L L L W`
+>
 `W W L L M F M L L L L W`
+>
 `W L L L M L M M L L W W`
+>
 `W W L L L L L L L L L W`
+>
 `W W L L L L L L L L W W`
+>
 `W L W L L L L W L L L W`
+>
 `W W W W W W W W W W W W`
 
 //Rules on each tile here
