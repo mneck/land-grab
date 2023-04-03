@@ -25,7 +25,7 @@ The map is a 12x12 grid. The edges of the map are water tiles. The 11x11 grid co
 
 #### An example of a map generated from the above template
 
-![Layout of a typical map](/assets/map_template.png)
+![Layout of a typical map](/assets/map_example.png)
 
 ### Tile types
 
