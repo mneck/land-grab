@@ -1,6 +1,6 @@
-### Land Grab
+# Land Grab
 
-#### What is this?
+## What is this?
 
 Land Grab is a simple strategy game where two players take turns building settlements to get income and generate coins. When a player attains 100 coins, they win the game.
 
@@ -8,13 +8,13 @@ Both players can build farms and settlements on an island with features that are
 
 Players alternate by building one farm or settlement per turn. Player 1, an industrialist, generates additional income from building mining and logging settlements near mountains and forests. Player 2 specializes in tourism and gains more income by building resort settlements on land near water and mountains. Both players need to build farms to feed their settlements; a player cannot have more towns than farms after placing their initial settlement.
 
-#### Details
+## Details
 
-##### The Map
+### The Map
 
 The map is a 12x12 grid. The edges of the map are water tiles. The 11x11 grid composing the island has edges that are randomly either land (66% chance) or water (33% chance) tiles. The 2x2 interior of the island is composed of either forest (50% chance) or mountain (50% chance) tiles. The 4x4 tiles at the center of the map are either land (33% chance), mountain (33% chance), or land (33% chance) tiles. Even if the 4x4 interior of the map is composed entirely of mountains and the 11x11 edges of the map are entirely composed of water, the players are still left with 36 tiles on which to build settlements and farms. Such an outcome would be extremely improbable.
 
-###### Map template
+#### Map template
 
 >`W = Water`
 >`L = Land`
@@ -23,11 +23,11 @@ The map is a 12x12 grid. The edges of the map are water tiles. The 11x11 grid co
 
 ![Template of map](/assets/map_template.png)
 
-###### An example of a map generated from the above template
+#### An example of a map generated from the above template
 
 ![Layout of a typical map](/assets/map_template.png)
 
-###### Tile types
+### Tile types
 
 There are four types of tiles generated on the map: water, land, mountain, and forest. Each tile has two important properties affecting play: charm/industry and canBeBuiltOn. There are also resort, mining, and farm settlement tiles built by the players. Adjacency bonuses refer to the tiles to the immediate North, South, West, and East of a given tile. All player-built tiles must be built adjacent to or to the immediate Northwest, Southwest, Northeast, or Southeast to a farm or settlement that belongs to that player.
 
@@ -45,10 +45,10 @@ There are four types of tiles generated on the map: water, land, mountain, and f
 
 **Resort** settlement tiles are built by Player 2. They produce 1 base income and 1 additional income for each adjacent water or mountain tile. They lose 1 income for each adjacent mining settlement to a base of 0 income. For example, a resort settlement built on a land tile that has 3 adjacent water tiles will provide Player 1 with 4 income per turn. A resort settlement adjacent to 1 land tile and 3 mining settlements will yield 0 income per turn.
 
-###### Rules of play
+### Rules of play
 
 Player 1 places their first farm at a place of their choosing. Player 2 follows. Players then alternate turns, each placing one farm or settlement per turn. Income is received at the beginning of each turn according to the number of and placement of settlements. A player with 2 settlements that each has 2 adjacency bonuses, for example, will receive 6 income at the beginning of their turn. When a player reaches an income of 100, they win the game.
 
-#### Technical Details
+### Technical Details
 
 Assets are from kenney.nl and itch.io. The P5 library is used to generate the map and display assets. JavaScript is used to create and implement the game's logic.
