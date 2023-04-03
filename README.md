@@ -12,51 +12,43 @@ Players alternate by building one farm or settlement per turn. Player 1, an indu
 
 ##### The Map
 
-The map is a 12x12 grid. The edges of the map are water tiles. The 11x11 grid composing the island has edges that are randomly either land (66% chance) or water (33% chance) tiles. The 2x2 interior of the island is composed of either forest (50% chance) or mountain (50% chance) tiles. The 4x4 edge tiles of the map are either land (33% chance), mountain (33% chance), or land tiles. Even if the 4x4 interior of the map and the 11x11 exterior of the map is entirely composed of mountains or water, respectively, the players are still left with 36 tiles on which to build settlements and farms.
+The map is a 12x12 grid. The edges of the map are water tiles. The 11x11 grid composing the island has edges that are randomly either land (66% chance) or water (33% chance) tiles. The 2x2 interior of the island is composed of either forest (50% chance) or mountain (50% chance) tiles. The 4x4 tiles at the center of the map are either land (33% chance), mountain (33% chance), or land (33% chance) tiles. Even if the 4x4 interior of the map is composed entirely of mountains and the 11x11 edges of the map are entirely composed of water, the players are still left with 36 tiles on which to build settlements and farms. Such an outcome would be extremely improbable.
 
-Map template:
-
-//Template image here
-
-Typical map layout
-
-//Typical map image here
-
+###### Map template
 
 >`W = Water`
 >`L = Land`
 >`M = Mountain`
 >`F = Forest`
->` `
 
-`W W W W W W W W W W W W`
->
-`W L L L W W L W L W L W`
->
-`W L L L L L L L L L L W`
->
-`W W L L L L L L L L L W`
->
-`W L L L M L F M L L W W`
->
-`W L L L F M L M L L L W`
->
-`W W L L M F M L L L L W`
->
-`W L L L M L M M L L W W`
->
-`W W L L L L L L L L L W`
->
-`W W L L L L L L L L W W`
->
-`W L W L L L L W L L L W`
->
-`W W W W W W W W W W W W`
+![Template of map](/assets/map_template.png)
 
-//Rules on each tile here
+###### An example of a map generated from the above template
 
-//Rules on play here
+![Layout of a typical map](/assets/map_template.png)
+
+###### Tile types
+
+There are four types of tiles generated on the map: water, land, mountain, and forest. Each tile has two important properties affecting play: charm/industry and canBeBuiltOn. There are also resort, mining, and farm settlement tiles built by the players. Adjacency bonuses refer to the tiles to the immediate North, South, West, and East of a given tile. All player-built tiles must be built adjacent to or to the immediate Northwest, Southwest, Northeast, or Southeast to a farm or settlement that belongs to that player.
+
+**Water** tiles cannot be built on and surround the playable area of the map. Each water tile adds 1 income to adjacent resort settlement tiles.
+
+**Land** tiles can be build on and form the playable area in the middle 11x11 grid of the map.
+
+**Mountain** tiles cannot be built on. They provide adjacent mining and resort settlements with one additional income per turn.
+
+**Forest** tiles can be built on. After a player builds a settlement on a forest, the forest is changed into a land tile and loses its industry adjacency bonuses. They provide adjacent mining settlements with 1 additional income per turn.
+
+**Farm** tiles are built by players and do not affect the income of adjacent tiles. They do not affect the income of a player or any adjacency bonuses (except when built on top of a forest, converting the forest to a land tile). A player cannot build more settlements than the number of farms they have on the map.
+
+**Mining** settlement tiles are built by Player 1. They produce 1 base income and 1 additional income for each adjacent forest or mountain tile. For example, a mining settlement built on a land tile that has 3 adjacent mountains and 1 adjacent forest will provide Player 1 with 5 income per turn. A mining settlement that is adjacent to 2 land tiles and 2 water tiles will provide Player 1 with 1 income per turn. A mining settlement adjacent to a resort settlement will subtract 1 income from that resort settlement.
+
+**Resort** settlement tiles are built by Player 2. They produce 1 base income and 1 additional income for each adjacent water or mountain tile. They lose 1 income for each adjacent mining settlement to a base of 0 income. For example, a resort settlement built on a land tile that has 3 adjacent water tiles will provide Player 1 with 4 income per turn. A resort settlement adjacent to 1 land tile and 3 mining settlements will yield 0 income per turn.
+
+###### Rules of play
+
+Player 1 places their first farm at a place of their choosing. Player 2 follows. Players then alternate turns, each placing one farm or settlement per turn. Income is received at the beginning of each turn according to the number of and placement of settlements. A player with 2 settlements that each has 2 adjacency bonuses, for example, will receive 6 income at the beginning of their turn. When a player reaches an income of 100, they win the game.
 
 #### Technical Details
 
-Assets are from kenney.nl. The P5 is used to create the map. JavaScript's object-oriented programming tools are used to create the game's logic.
+Assets are from kenney.nl and itch.io. The P5 library is used to generate the map and display assets. JavaScript is used to create and implement the game's logic.

@@ -1,11 +1,18 @@
 class Game {
   constructor() {
-    // this.tiles = new Tiles();
+    this.tiles = new Tiles();
+    this.tileImages;
     // this.tiles = new Players();
   }
 
   preload() {
-    img = loadImage("../assets/kenney_pixel-shmup/Tiles/0land_tile.png");
+    this.tileImages = [
+      { src: loadImage("../assets/kenney_pixel-shmup/Tiles/0land_tile.png"), x: 0 },
+      { src: loadImage("./assets/background/plx-2.png"), x: 0 },
+      { src: loadImage("./assets/background/plx-3.png"), x: 0 },
+      { src: loadImage("./assets/background/plx-4.png"), x: 0 },
+      { src: loadImage("./assets/background/plx-5.png"), x: 0 },
+    ]
   }
 
   setup() {
