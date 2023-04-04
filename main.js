@@ -11,4 +11,5 @@ function setup() {
 
 function draw() {
   game.drawMap();
+  game.landOrWater.drawlandOrWater();
 }

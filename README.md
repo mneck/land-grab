@@ -2,11 +2,11 @@
 
 ## What is this?
 
-Land Grab is a simple strategy game where two players take turns building settlements to get income and generate coins. When a player attains 100 coins, they win the game.
+Land Grab is a simple strategy game where two players take turns building settlements to get income to generate points. When a player attains 100 points, they win the game.
 
-Both players can build farms and settlements on an island with features that are randomly generated at the start of the game. The middle of the island is obscured by fog, which disappears as players build settlements and farms near the edge of the fog.
+Both players can build farms and settlements on an island with certain features that are randomly generated at the start of the game.
 
-Players alternate by building one farm or settlement per turn. Player 1, an industrialist, generates additional income from building mining and logging settlements near mountains and forests. Player 2 specializes in tourism and gains more income by building resort settlements on land near water and mountains. Both players need to build farms to feed their settlements; a player cannot have more towns than farms after placing their initial settlement.
+Player 1 places a farm at the start of their turn to begin the game. Players alternate by building one farm or settlement per turn. Player 1, an industrialist, generates income from building mining/logging settlements near mountains or forests. Player 2 specializes in tourism and generates income by building resort settlements on land near water or mountains. Both players need to build farms to feed their settlements; a player cannot have more settlements than farms.
 
 ## Details
 
