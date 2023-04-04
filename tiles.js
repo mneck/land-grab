@@ -8,7 +8,7 @@ class Tiles {
   }
 
   landTile() {
-    const land = "La";
+    const land = "land";
     this.type = land;
     this.canBeBuiltOn = true;
     this.playerBuilt = false;
@@ -18,7 +18,7 @@ class Tiles {
   }
 
   waterTile() {
-    const water = "Wa";
+    const water = "water";
     this.type = water;
     this.canBeBuiltOn = false;
     this.playerBuilt = false;
@@ -29,7 +29,7 @@ class Tiles {
   }
 
   mountainTile() {
-    const mountain = "Mo";
+    const mountain = "mountain";
     this.type = mountain;
     this.canBeBuiltOn = false;
     this.playerBuilt = false;
@@ -40,7 +40,7 @@ class Tiles {
   }
 
   forestTile() {
-    const forest = "Fo";
+    const forest = "forest";
     this.type = forest;
     this.canBeBuiltOn = true;
     this.playerBuilt = false;
@@ -51,7 +51,7 @@ class Tiles {
   }
 
   farmTile() {
-    const farm = "Fa";
+    const farm = "farm";
     this.type = farm;
     this.canBeBuiltOn = false;
     this.playerBuilt = true;
@@ -61,7 +61,7 @@ class Tiles {
   }
 
   resortTile() {
-    const resort = "Re";
+    const resort = "resort";
     this.type = resort;
     this.canBeBuiltOn = false;
     this.playerBuilt = true;
@@ -71,7 +71,7 @@ class Tiles {
   }
 
   mineTile() {
-    const mine = "Mi";
+    const mine = "mine";
     this.type = mine;
     this.canBeBuiltOn = false;
     this.playerBuilt = true;
