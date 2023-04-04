@@ -7,7 +7,7 @@ class Tiles {
     this.charmValue = charmValue;
   }
 
-  landTile() {
+  land() {
     const land = "land";
     this.type = land;
     this.canBeBuiltOn = true;
@@ -17,7 +17,7 @@ class Tiles {
     return this.type;
   }
 
-  waterTile() {
+  water() {
     const water = "water";
     this.type = water;
     this.canBeBuiltOn = false;
@@ -28,7 +28,7 @@ class Tiles {
     return this.type;
   }
 
-  mountainTile() {
+  mountain() {
     const mountain = "mountain";
     this.type = mountain;
     this.canBeBuiltOn = false;
@@ -39,7 +39,7 @@ class Tiles {
     return this.type;
   }
 
-  forestTile() {
+  forest() {
     const forest = "forest";
     this.type = forest;
     this.canBeBuiltOn = true;
@@ -50,9 +50,9 @@ class Tiles {
     return this.type;
   }
 
-  farmTile() {
-    const farm = "farm";
-    this.type = farm;
+  player1Farm() {
+    const farm1 = "farm1";
+    this.type = farm1;
     this.canBeBuiltOn = false;
     this.playerBuilt = true;
     this.charmValue = 0;
@@ -60,9 +60,9 @@ class Tiles {
     return this.type;
   }
 
-  resortTile() {
-    const resort = "resort";
-    this.type = resort;
+  player2Farm() {
+    const farm2 = "farm2";
+    this.type = farm2;
     this.canBeBuiltOn = false;
     this.playerBuilt = true;
     this.charmValue = 0;
@@ -70,7 +70,7 @@ class Tiles {
     return this.type;
   }
 
-  mineTile() {
+  mine() {
     const mine = "mine";
     this.type = mine;
     this.canBeBuiltOn = false;
@@ -78,6 +78,16 @@ class Tiles {
     this.charmValue = 0;
     this.industryValue = 0;
     // subtracts 1 charm from adjacent tiles
+    return this.type;
+  }
+
+  resort() {
+    const resort = "resort";
+    this.type = resort;
+    this.canBeBuiltOn = false;
+    this.playerBuilt = true;
+    this.charmValue = 0;
+    this.industryValue = 0;
     return this.type;
   }
 }

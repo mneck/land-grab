@@ -8,8 +8,8 @@ class Game {
     this.randomizer = this.randomNumbersArray();
     this.player1 = new Player1();
     this.player2 = new Player2();
-    // this.tileType = new Tiles();
-    // this.players = new Players();
+    this.tile = new Tiles();
+    this.gridArray = [];
   }
 
   preload() {
@@ -22,6 +22,8 @@ class Game {
     this.player1FarmImage = loadImage("./assets/7player1_farm.png");
     this.player2FarmImage = loadImage("./assets/8player2_farm.png");
   }
+
+  // this.gridArray = []
 
   randomNumbersArray() {
     let map = [];
