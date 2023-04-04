@@ -5,7 +5,7 @@ class Game {
     this.width = 100;
     this.height = 100;
     this.image;
-    // this.landOrWater = new landOrWater();
+    this.randomizer = this.randomNumbersArray();
   }
 
   preload() {
@@ -19,10 +19,8 @@ class Game {
     this.player2FarmImage = loadImage("./assets/8player2_farm.png");
   }
 
-  drawMap() {
-    clear();
-
-    let imagesArr = [
+  createImagesArray() {
+    return [
       this.landImage,
       this.waterImage,
       this.forestImage,
@@ -31,152 +29,225 @@ class Game {
       this.resortImage,
       this.player1FarmImage,
       this.player2FarmImage,
-    ].map(function (el) {
-      return el.resize(100, 100);
-    });
+    ];
+  }
 
-    console.log(imagesArr);
+  randomNumbersArray() {
+    let map = [];
+    for (let i = 0; i <= 1000; i += 1) {
+      map.push(Math.random());
+    }
+    return map;
+  }
 
-    // function landOrWater() {
-    //   if (Math.random() < 0.5) {
-    //     console.log("land");
-    //     return imagesArr[0];
-    //   } else {
-    //     console.log("water");
-    //     return imagesArr[1];
-    //   }
-    // }
+  landOrWater(number) {
+    console.log(number);
+    if (number < 0.5) {
+      return this.landImage;
+    } else {
+      return this.waterImage;
+    }
+  }
 
-    // let landOrWaterImage = image(landOrWater(), 100, 100);
+  landForestOrMountain(number) {
+    console.log(number);
+    if (number < 0.33) {
+      return this.landImage;
+    } else if (number < 0.7) {
+      return this.forestImage;
+    } else {
+      return this.mountainImage;
+    }
+  }
 
-    // image(this.landOrWater.landOrWater(), i, 0);
+  forestOrMountain(number) {
+    console.log(number);
+    if (number < 0.5) {
+      return this.forestImage;
+    } else {
+      return this.mountainImage;
+    }
+  }
+
+  drawMap() {
+    clear();
+
+    console.log(this.imagesArr);
 
     // 12x12 borders of water tiles
 
-    for (let i = 0; i <= 1200; i += 100) {
+    for (let i = 0; i <= 12; i += 1) {
       strokeWeight(2);
 
-      image(this.waterImage, i, 0);
+      image(this.waterImage, i * 100, 0, 100, 100);
       noFill();
-      rect(i, 0, 100, 100);
+      rect(i * 100, 0, 100, 100);
 
-      image(this.waterImage, 0, i);
+      image(this.waterImage, 0, i * 100, 100, 100);
       noFill();
-      rect(0, i, 100, 100);
+      rect(0, i * 100, 100, 100);
 
-      image(this.waterImage, 1100, i);
+      image(this.waterImage, 1100, i * 100, 100, 100);
       noFill();
-      rect(1100, i, 100, 100);
+      rect(1100, i * 100, 100, 100);
 
-      image(this.waterImage, i, 1100);
+      image(this.waterImage, i * 100, 1100, 100, 100);
       noFill();
-      rect(i, 1100, 100, 100);
+      rect(i * 100, 1100, 100, 100);
     }
 
     // 10x10 borders of land/water tiles
-    for (let i = 100; i <= 1000; i += 100) {
+    for (let i = 1; i <= 10; i += 1) {
       strokeWeight(2);
 
-      image(this.landImage, i, 100);
+      image(this.landOrWater(this.randomizer[i]), i * 100, 100, 100, 100);
       noFill();
-      rect(i, 100, 100, 100);
+      rect(i * 100, 100, 100, 100);
 
-      image(this.landImage, 100, i);
+      image(this.landOrWater(this.randomizer[i]), 100, i * 100, 100, 100);
       noFill();
-      rect(100, i, 100, 100);
+      rect(100, i * 100, 100, 100);
 
-      image(this.landImage, 1000, i);
+      image(this.landOrWater(this.randomizer[i]), 1000, i * 100, 100, 100);
       noFill();
-      rect(1000, i, 100, 100);
+      rect(1000, i * 100, 100, 100);
 
-      image(this.landImage, i, 1000);
+      image(this.landOrWater(this.randomizer[i]), i * 100, 1000, 100, 100);
       noFill();
-      rect(i, 1000, 100, 100);
+      rect(i * 100, 1000, 100, 100);
     }
 
     // 8x8 borders of land tiles
-    for (let i = 200; i <= 900; i += 100) {
+    for (let i = 2; i <= 9; i += 1) {
       strokeWeight(2);
 
-      image(this.landImage, i, 200);
+      image(this.landImage, i * 100, 200, 100, 100);
       noFill();
-      rect(i, 200, 100, 100);
+      rect(i * 100, 200, 100, 100);
 
-      image(this.landImage, 200, i);
+      image(this.landImage, 200, i * 100, 100, 100);
       noFill();
-      rect(200, i, 100, 100);
+      rect(200, i * 100, 100, 100);
 
-      image(this.landImage, 900, i);
+      image(this.landImage, 900, i * 100, 100, 100);
       noFill();
-      rect(900, i, 100, 100);
+      rect(900, i * 100, 100, 100);
 
-      image(this.landImage, i, 900);
+      image(this.landImage, i * 100, 900, 100, 100);
       noFill();
-      rect(i, 900, 100, 100);
+      rect(i * 100, 900, 100, 100);
     }
 
     // 6x6 borders of land tiles
-    for (let i = 300; i <= 800; i += 100) {
+    for (let i = 3; i <= 8; i += 1) {
       strokeWeight(2);
 
-      image(this.resortImage, i, 300);
+      image(this.landImage, i * 100, 300, 100, 100);
       noFill();
-      rect(i, 300, 100, 100);
+      rect(i * 100, 300, 100, 100);
 
-      image(this.mineImage, 300, i);
+      image(this.landImage, 300, i * 100, 100, 100);
       noFill();
-      rect(300, i, 100, 100);
+      rect(300, i * 100, 100, 100);
 
-      image(this.player1FarmImage, 800, i);
+      image(this.landImage, 800, i * 100, 100, 100);
       noFill();
-      rect(800, i, 100, 100);
+      rect(800, i * 100, 100, 100);
 
-      image(this.player2FarmImage, i, 800);
+      image(this.landImage, i * 100, 800, 100, 100);
       noFill();
-      rect(i, 800, 100, 100);
+      rect(i * 100, 800, 100, 100);
     }
 
     // 4x4 borders of land/forest/mountain tiles
-    for (let i = 400; i <= 700; i += 100) {
+    for (let i = 4; i <= 7; i += 1) {
       strokeWeight(2);
 
-      image(this.mountainImage, i, 400);
+      // image(this.landOrWater(this.randomizer[i]), i * 100, 1000, 100, 100);
+      image(
+        this.landForestOrMountain(this.randomizer[i + 100]),
+        i * 100,
+        400,
+        100,
+        100
+      );
       noFill();
-      rect(i, 400, 100, 100);
+      rect(i * 100, 400, 100, 100);
 
-      image(this.mountainImage, 400, i);
+      image(
+        this.landForestOrMountain(this.randomizer[i + 110]),
+        400,
+        i * 100,
+        100,
+        100
+      );
       noFill();
-      rect(400, i, 100, 100);
+      rect(400, i * 100, 100, 100);
 
-      image(this.mountainImage, 700, i);
+      image(
+        this.landForestOrMountain(this.randomizer[i + 120]),
+        700,
+        i * 100,
+        100,
+        100
+      );
       noFill();
-      rect(700, i, 100, 100);
+      rect(700, i * 100, 100, 100);
 
-      image(this.mountainImage, i, 700);
+      image(
+        this.landForestOrMountain(this.randomizer[i + 130]),
+        i * 100,
+        700,
+        100,
+        100
+      );
       noFill();
-      rect(i, 700, 100, 100);
+      rect(i * 100, 700, 100, 100);
     }
 
     // 2x2 interior of forest/mountain tiles
-
-    for (let i = 500; i <= 600; i += 100) {
+    for (let i = 5; i <= 6; i += 1) {
       strokeWeight(2);
 
-      image(this.forestImage, i, 500);
+      image(
+        this.forestOrMountain(this.randomizer[i + 140]),
+        i * 100,
+        500,
+        100,
+        100
+      );
       noFill();
-      rect(i, 500, 100, 100);
+      rect(i * 100, 500, 100, 100);
 
-      image(this.forestImage, 500, i);
+      image(
+        this.forestOrMountain(this.randomizer[i + 150]),
+        500,
+        i * 100,
+        100,
+        100
+      );
       noFill();
-      rect(500, i, 100, 100);
+      rect(500, i * 100, 100, 100);
 
-      image(this.forestImage, 600, i);
+      image(
+        this.forestOrMountain(this.randomizer[i + 160]),
+        600,
+        i * 100,
+        100,
+        100
+      );
       noFill();
-      rect(600, i, 100, 100);
+      rect(600, i * 100, 100, 100);
 
-      image(this.forestImage, i, 600);
+      image(
+        this.forestOrMountain(this.randomizer[i + 170]),
+        i * 100,
+        600,
+        100,
+        100
+      );
       noFill();
-      rect(i, 600, 100, 100);
+      rect(i * 100, 600, 100, 100);
     }
 
     // for (let i = 100; i <= 1000; i += 100) {
