@@ -1,36 +1,76 @@
 class Game {
   constructor() {
-    this.tiles = new Tiles();
-    this.tileImages;
-    // this.tiles = new Players();
+    this.col = 0;
+    this.row = 0;
+    this.width = 100;
+    this.height = 100;
+    this.image;
+    this.landOrWaterImage = "";
   }
 
   preload() {
-    this.tileImages = [
-      { src: loadImage("../assets/kenney_pixel-shmup/Tiles/0land_tile.png"), x: 0 },
-      { src: loadImage("./assets/background/plx-2.png"), x: 0 },
-      { src: loadImage("./assets/background/plx-3.png"), x: 0 },
-      { src: loadImage("./assets/background/plx-4.png"), x: 0 },
-      { src: loadImage("./assets/background/plx-5.png"), x: 0 },
-    ]
-  }
-
-  setup() {
-    createCanvas(600, 600); // Set the size of the canvas
-    background(255); // Set the background color to white
-    translate(-100, -100);
-    stroke(0); // Set the stroke color to black
-    texture(img);
+    this.waterImage = loadImage("./assets/1water_tile.png");
+    this.landImage = loadImage("./assets/2land_tile.png");
   }
 
   drawMap() {
     clear();
-    let mapArr = [];
-    for (let i = 0; i < 12; i++) {
-      for (let j = 0; j < 12; j++) {
-        rect(i * 50, j * 50, 50, 50); // Draw a rectangle at position (i*50, j*50) with a width and height of 50
-      }
+
+    // 12x12 borders of water tiles
+    for (let i = 0; i <= 1200; i += 100) {
+      strokeWeight(2);
+      this.waterImage.resize(100, 100);
+      this.landImage.resize(100, 100);
+
+      image(this.waterImage, i, 0);
+      noFill();
+      rect(i, 0, 100, 100);
+
+      image(this.waterImage, 0, i);
+      noFill();
+      rect(0, i, 100, 100);
+
+      image(this.waterImage, 1100, i);
+      noFill();
+      rect(1100, i, 100, 100);
+
+      image(this.waterImage, i, 1100);
+      noFill();
+      rect(i, 1100, 100, 100);
     }
+
+    // 10x10 borders of land/water tiles
+    for (let i = 100; i <= 1000; i += 100) {
+      strokeWeight(2);
+
+      image(this.landImage, i, 100);
+      noFill();
+      rect(i, 100, 100, 100);
+
+      image(this.landImage, 100, i);
+      noFill();
+      rect(100, i, 100, 100);
+
+      image(this.landImage, 1000, i);
+      noFill();
+      rect(1000, i, 100, 100);
+
+      image(this.landImage, i, 1000);
+      noFill();
+      rect(i, 1000, 100, 100);
+    }
+
+    // for (let i = 100; i <= 1000; i += 100) {
+    //   for (let j = 1; j <= 10; j++) {
+    //   // let fiftyPercenter = 1 + Math.floor(Math.random() +1)
+    //   strokeWeight(2);
+    //   this.landImage.resize(100, 100);
+
+    //   image(this.landImage, i, j*100);
+    //   noFill();
+    //   rect(i, j*100, 100, 100)
+    //   }
+    // }
   }
 }
 

@@ -12,14 +12,11 @@ Players alternate by building one farm or settlement per turn. Player 1, an indu
 
 ### The Map
 
-The map is a 12x12 grid. The edges of the map are water tiles. The 11x11 grid composing the island has edges that are randomly either land (66% chance) or water (33% chance) tiles. The 2x2 interior of the island is composed of either forest (50% chance) or mountain (50% chance) tiles. The 4x4 tiles at the center of the map are either land (33% chance), mountain (33% chance), or land (33% chance) tiles. Even if the 4x4 interior of the map is composed entirely of mountains and the 11x11 edges of the map are entirely composed of water, the players are still left with 36 tiles on which to build settlements and farms. Such an outcome would be extremely improbable.
+The map is a 12x12 grid. The edges of the map are water tiles. The 11x11 grid composing the island has edges that are randomly either land (50% chance) or water (50% chance) tiles. The 2x2 interior of the island is composed of either forest (50% chance) or mountain (50% chance) tiles. The 4x4 tiles at the center of the map are either land (33% chance), mountain (33% chance), or land (33% chance) tiles. Even if the 4x4 interior of the map is composed entirely of mountains and the 11x11 edges of the map are entirely composed of water, the players are still left with 36 tiles on which to build settlements and farms. Such an outcome would be extremely improbable.
 
 #### Map template
 
->`W = Water`
->`L = Land`
->`M = Mountain`
->`F = Forest`
+> `W = Water` >`L = Land` >`M = Mountain` >`F = Forest`
 
 ![Template of map](/assets/map_template.png)
 
@@ -29,13 +26,13 @@ The map is a 12x12 grid. The edges of the map are water tiles. The 11x11 grid co
 
 ### Tile types
 
-There are four types of tiles generated on the map: water, land, mountain, and forest. Each tile has two important properties affecting play: charm/industry and canBeBuiltOn. There are also resort, mining, and farm settlement tiles built by the players. Adjacency bonuses refer to the tiles to the immediate North, South, West, and East of a given tile. All player-built tiles must be built adjacent to or to the immediate Northwest, Southwest, Northeast, or Southeast to a farm or settlement that belongs to that player.
+There are four types of tiles generated on the map: water, land, mountain, and forest. Each tile has two important properties affecting play: charm/industry and canBeBuiltOn. There are also resort, mining, and farm settlement tiles built by the players. Adjacency bonuses refer to the tiles to the immediate North, South, West, and East of a given tile. All player-built tiles must be built adjacent to or to the immediate Northwest, Southwest, Northeast, or Southeast of a farm or settlement that belongs to that player.
 
-**Water** tiles cannot be built on and surround the playable area of the map. Each water tile adds 1 income to adjacent resort settlement tiles.
+**Water** tiles cannot be built on and surround the playable area of the map. Each water tile adds 1 additional income to adjacent resort settlement tiles.
 
 **Land** tiles can be build on and form the playable area in the middle 11x11 grid of the map.
 
-**Mountain** tiles cannot be built on. They provide adjacent mining and resort settlements with one additional income per turn.
+**Mountain** tiles cannot be built on. They provide adjacent mining and resort settlements with 1 additional income per turn.
 
 **Forest** tiles can be built on. After a player builds a settlement on a forest, the forest is changed into a land tile and loses its industry adjacency bonuses. They provide adjacent mining settlements with 1 additional income per turn.
 
