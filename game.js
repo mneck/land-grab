@@ -6,6 +6,10 @@ class Game {
     this.height = 100;
     this.image;
     this.randomizer = this.randomNumbersArray();
+    this.player1 = new Player1();
+    this.player2 = new Player2();
+    // this.tileType = new Tiles();
+    // this.players = new Players();
   }
 
   preload() {
@@ -34,14 +38,13 @@ class Game {
 
   randomNumbersArray() {
     let map = [];
-    for (let i = 0; i <= 1000; i += 1) {
+    for (let i = 0; i <= 500; i += 1) {
       map.push(Math.random());
     }
     return map;
   }
 
   landOrWater(number) {
-    console.log(number);
     if (number < 0.5) {
       return this.landImage;
     } else {
@@ -50,7 +53,6 @@ class Game {
   }
 
   landForestOrMountain(number) {
-    console.log(number);
     if (number < 0.33) {
       return this.landImage;
     } else if (number < 0.7) {
@@ -61,7 +63,6 @@ class Game {
   }
 
   forestOrMountain(number) {
-    console.log(number);
     if (number < 0.5) {
       return this.forestImage;
     } else {
@@ -72,10 +73,7 @@ class Game {
   drawMap() {
     clear();
 
-    console.log(this.imagesArr);
-
     // 12x12 borders of water tiles
-
     for (let i = 0; i <= 12; i += 1) {
       strokeWeight(2);
 
@@ -249,20 +247,5 @@ class Game {
       noFill();
       rect(i * 100, 600, 100, 100);
     }
-
-    // for (let i = 100; i <= 1000; i += 100) {
-    //   for (let j = 1; j <= 10; j++) {
-    //   // let fiftyPercenter = 1 + Math.floor(Math.random() +1)
-    //   strokeWeight(2);
-    //   this.landImage.resize(100, 100);
-
-    //   image(this.landImage, i, j*100);
-    //   noFill();
-    //   rect(i, j*100, 100, 100)
-    //   }
-    // }
   }
 }
-
-// buildable property = true || false
-// one class Tile with children => land tile, ocean tile, mountain tile,
