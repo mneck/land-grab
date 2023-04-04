@@ -23,19 +23,6 @@ class Game {
     this.player2FarmImage = loadImage("./assets/8player2_farm.png");
   }
 
-  createImagesArray() {
-    return [
-      this.landImage,
-      this.waterImage,
-      this.forestImage,
-      this.mountainImage,
-      this.mineImage,
-      this.resortImage,
-      this.player1FarmImage,
-      this.player2FarmImage,
-    ];
-  }
-
   randomNumbersArray() {
     let map = [];
     for (let i = 0; i <= 500; i += 1) {
