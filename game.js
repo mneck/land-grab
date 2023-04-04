@@ -5,7 +5,7 @@ class Game {
     this.width = 100;
     this.height = 100;
     this.image;
-    this.landOrWater = new landOrWater();
+    // this.landOrWater = new landOrWater();
   }
 
   preload() {
@@ -21,20 +21,41 @@ class Game {
 
   drawMap() {
     clear();
-    this.waterImage.resize(100, 100);
-    this.landImage.resize(100, 100);
-    this.forestImage.resize(100, 100);
-    this.mountainImage.resize(100, 100);
-    this.mineImage.resize(100, 100);
-    this.resortImage.resize(100, 100);
-    this.player1FarmImage.resize(100, 100);
-    this.player2FarmImage.resize(100, 100);
+
+    let imagesArr = [
+      this.landImage,
+      this.waterImage,
+      this.forestImage,
+      this.mountainImage,
+      this.mineImage,
+      this.resortImage,
+      this.player1FarmImage,
+      this.player2FarmImage,
+    ].map(function (el) {
+      return el.resize(100, 100);
+    });
+
+    console.log(imagesArr);
+
+    // function landOrWater() {
+    //   if (Math.random() < 0.5) {
+    //     console.log("land");
+    //     return imagesArr[0];
+    //   } else {
+    //     console.log("water");
+    //     return imagesArr[1];
+    //   }
+    // }
+
+    // let landOrWaterImage = image(landOrWater(), 100, 100);
+
+    // image(this.landOrWater.landOrWater(), i, 0);
 
     // 12x12 borders of water tiles
+
     for (let i = 0; i <= 1200; i += 100) {
       strokeWeight(2);
 
-      // image(this.landOrWater.landOrWater(), i, 0);
       image(this.waterImage, i, 0);
       noFill();
       rect(i, 0, 100, 100);

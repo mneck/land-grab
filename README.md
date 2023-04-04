@@ -2,9 +2,9 @@
 
 ## What is this?
 
-Land Grab is a simple strategy game where two players take turns building settlements to get income to generate points. When a player attains 100 points, they win the game.
+Land Grab is a 2-player strategy game. Players take turns building settlements to get income to generate points. When a player attains 100 points, they win the game.
 
-Both players can build farms and settlements on an island with certain features that are randomly generated at the start of the game.
+Both players can build farms and settlements on an island with features that are randomly generated at the start of the game.
 
 Player 1 places a farm at the start of their turn to begin the game. Players alternate by building one farm or settlement per turn. Player 1, an industrialist, generates income from building mining/logging settlements near mountains or forests. Player 2 specializes in tourism and generates income by building resort settlements on land near water or mountains. Both players need to build farms to feed their settlements; a player cannot have more settlements than farms.
 
@@ -12,7 +12,7 @@ Player 1 places a farm at the start of their turn to begin the game. Players alt
 
 ### The Map
 
-The map is a 12x12 grid. The edges of the map are water tiles. The 11x11 grid composing the island has edges that are randomly either land (50% chance) or water (50% chance) tiles. The 2x2 interior of the island is composed of either forest (50% chance) or mountain (50% chance) tiles. The 4x4 tiles at the center of the map are either land (33% chance), mountain (33% chance), or land (33% chance) tiles. Even if the 4x4 interior of the map is composed entirely of mountains and the 11x11 edges of the map are entirely composed of water, the players are still left with 36 tiles on which to build settlements and farms. Such an outcome would be extremely improbable.
+The map is a 12x12 grid. The edges of the map are water tiles. The 11x11 border of the island is composed of either land (50% chance) or water (50% chance) tiles. The 2x2 interior of the island is composed of either forest (50% chance) or mountain (50% chance) tiles. The 4x4 tiles at the center of the map are either land (33% chance), mountain (33% chance), or land (34% chance) tiles. Even if in the very unlikely event that the 4x4 interior of the map is composed entirely of mountains and the 11x11 edges of the map are entirely composed of water, the players are still left with 36 tiles on which to build settlements and farms.
 
 #### Map template
 
@@ -26,7 +26,7 @@ The map is a 12x12 grid. The edges of the map are water tiles. The 11x11 grid co
 
 ### Tile types
 
-There are four types of tiles generated on the map: water, land, mountain, and forest. Each tile has two important properties affecting play: charm/industry and canBeBuiltOn. There are also resort, mining, and farm settlement tiles built by the players. Adjacency bonuses refer to the tiles to the immediate North, South, West, and East of a given tile. All player-built tiles must be built adjacent to or to the immediate Northwest, Southwest, Northeast, or Southeast of a farm or settlement that belongs to that player.
+There are four types of tiles generated on the map: water, land, mountain, and forest. Each tile has two important properties affecting play: charm/industry and canBeBuiltOn. A tile's "charm" value gives adjacency bonuses to Player 2, while a tile's "industry" value gives adjaceny bonuses to Player 1. There are also resort, mining, and farm settlement tiles built by the players. Adjacency bonuses refer to the tiles to the immediate North, South, West, and East of a given tile. All player-built tiles must be built adjacent to or to the immediate Northwest, Southwest, Northeast, or Southeast of a farm or settlement that belongs to that player.
 
 **Water** tiles cannot be built on and surround the playable area of the map. Each water tile adds 1 additional income to adjacent resort settlement tiles.
 
