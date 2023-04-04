@@ -9,7 +9,7 @@ class Game {
     this.player1 = new Player1();
     this.player2 = new Player2();
     this.tile = new Tiles();
-    this.gridArray = [];
+    // this.gridArray = this.gridArray();
   }
 
   preload() {
@@ -23,7 +23,16 @@ class Game {
     this.player2FarmImage = loadImage("./assets/8player2_farm.png");
   }
 
-  // this.gridArray = []
+  gridArray() {
+    let grid = [];
+    this.tile.type = water;
+    for (let i = 0; i < 12; i += 1) {
+      grid.push(this.tile.type);
+      console.log(grid);
+    }
+    console.log(grid);
+    return grid;
+  }
 
   randomNumbersArray() {
     let map = [];
@@ -61,10 +70,12 @@ class Game {
 
   drawMap() {
     clear();
-
+    // this.gridArray;
     // 12x12 borders of water tiles
     for (let i = 0; i <= 12; i += 1) {
       strokeWeight(2);
+
+      this.gridArray;
 
       image(this.waterImage, i * 100, 0, 100, 100);
       noFill();
