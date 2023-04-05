@@ -5,7 +5,8 @@ class Player1 {
     this.image;
   }
   //draws Player1 Farms & Settlements
-  mouseClicked() {
+
+  build() {
     if (mouseButton === LEFT) {
       leftPressed = true;
       //background should be farm

@@ -174,18 +174,29 @@ class Game {
 
     // row 0
     for (let i = 0; i <= 11; i++) {
+      this.map[i].xposition = i * 60;
+      this.map[i].yposition = 0;
       image(this.waterImage, i * 60, 0, 60, 60);
       noFill();
       rect(i * 60, 0, 60, 60);
     }
 
+    /*
+dist between (mouseX, mouseY, tile[i].xposition, tile[i].yposition
+
+    */
+
     // row 1
     for (let i = 12; i <= 23; i++) {
       if (this.map[i].type == "water") {
+        this.map[i].xposition = (i - 12) * 60;
+        this.map[i].yposition = 60;
         image(this.waterImage, (i - 12) * 60, 60, 60, 60);
         noFill();
         rect((i - 12) * 60, 60, 60, 60);
       } else {
+        this.map[i].xposition = (i - 12) * 60;
+        this.map[i].yposition = 60;
         image(this.landImage, (i - 12) * 60, 60, 60, 60);
         noFill();
         rect((i - 12) * 60, 60, 60, 60);
@@ -195,10 +206,14 @@ class Game {
     // row 2
     for (let i = 24; i <= 35; i++) {
       if (this.map[i].type == "water") {
+        this.map[i].xposition = (i - 24) * 60;
+        this.map[i].yposition = 120;
         image(this.waterImage, (i - 24) * 60, 120, 60, 60);
         noFill();
         rect((i - 24) * 60, 120, 60, 60);
       } else if (this.map[i].type == "land") {
+        this.map[i].xposition = (i - 24) * 60;
+        this.map[i].yposition = 120;
         image(this.landImage, (i - 24) * 60, 120, 60, 60);
         noFill();
         rect((i - 24) * 60, 120, 60, 60);
@@ -208,10 +223,14 @@ class Game {
     // row 3
     for (let i = 36; i <= 47; i++) {
       if (this.map[i].type == "water") {
+        this.map[i].xposition = (i - 36) * 60;
+        this.map[i].yposition = 180;
         image(this.waterImage, (i - 36) * 60, 180, 60, 60);
         noFill();
         rect((i - 36) * 60, 180, 60, 60);
       } else if (this.map[i].type == "land") {
+        this.map[i].xposition = (i - 36) * 60;
+        this.map[i].yposition = 180;
         image(this.landImage, (i - 36) * 60, 180, 60, 60);
         noFill();
         rect((i - 36) * 60, 180, 60, 60);
@@ -221,18 +240,26 @@ class Game {
     // row 4
     for (let i = 48; i <= 59; i++) {
       if (this.map[i].type == "water") {
+        this.map[i].xposition = (i - 48) * 60;
+        this.map[i].yposition = 240;
         image(this.waterImage, (i - 48) * 60, 240, 60, 60);
         noFill();
         rect((i - 48) * 60, 240, 60, 60);
       } else if (this.map[i].type == "land") {
+        this.map[i].xposition = (i - 48) * 60;
+        this.map[i].yposition = 240;
         image(this.landImage, (i - 48) * 60, 240, 60, 60);
         noFill();
         rect((i - 48) * 60, 240, 60, 60);
       } else if (this.map[i].type == "mountain") {
+        this.map[i].xposition = (i - 48) * 60;
+        this.map[i].yposition = 240;
         image(this.mountainImage, (i - 48) * 60, 240, 60, 60);
         noFill();
         rect((i - 48) * 60, 240, 60, 60);
       } else if (this.map[i].type == "forest") {
+        this.map[i].xposition = (i - 48) * 60;
+        this.map[i].yposition = 240;
         image(this.forestImage, (i - 48) * 60, 240, 60, 60);
         noFill();
         rect((i - 48) * 60, 240, 60, 60);
@@ -242,18 +269,26 @@ class Game {
     // row 5
     for (let i = 60; i <= 71; i++) {
       if (this.map[i].type == "water") {
+        this.map[i].xposition = (i - 60) * 60;
+        this.map[i].yposition = 300;
         image(this.waterImage, (i - 60) * 60, 300, 60, 60);
         noFill();
         rect((i - 60) * 60, 300, 60, 60);
       } else if (this.map[i].type == "land") {
+        this.map[i].xposition = (i - 60) * 60;
+        this.map[i].yposition = 300;
         image(this.landImage, (i - 60) * 60, 300, 60, 60);
         noFill();
         rect((i - 60) * 60, 300, 60, 60);
       } else if (this.map[i].type == "mountain") {
+        this.map[i].xposition = (i - 60) * 60;
+        this.map[i].yposition = 300;
         image(this.mountainImage, (i - 60) * 60, 300, 60, 60);
         noFill();
         rect((i - 60) * 60, 300, 60, 60);
       } else if (this.map[i].type == "forest") {
+        this.map[i].xposition = (i - 60) * 60;
+        this.map[i].yposition = 300;
         image(this.forestImage, (i - 60) * 60, 300, 60, 60);
         noFill();
         rect((i - 60) * 60, 300, 60, 60);
@@ -263,18 +298,26 @@ class Game {
     // row 6
     for (let i = 72; i <= 83; i++) {
       if (this.map[i].type == "water") {
+        this.map[i].xposition = (i - 72) * 60;
+        this.map[i].yposition = 360;
         image(this.waterImage, (i - 72) * 60, 360, 60, 60);
         noFill();
         rect((i - 72) * 60, 360, 60, 60);
       } else if (this.map[i].type == "land") {
+        this.map[i].xposition = (i - 72) * 60;
+        this.map[i].yposition = 360;
         image(this.landImage, (i - 72) * 60, 360, 60, 60);
         noFill();
         rect((i - 72) * 60, 360, 60, 60);
       } else if (this.map[i].type == "mountain") {
+        this.map[i].xposition = (i - 72) * 60;
+        this.map[i].yposition = 360;
         image(this.mountainImage, (i - 72) * 60, 360, 60, 60);
         noFill();
         rect((i - 72) * 60, 360, 60, 60);
       } else if (this.map[i].type == "forest") {
+        this.map[i].xposition = (i - 72) * 60;
+        this.map[i].yposition = 360;
         image(this.forestImage, (i - 72) * 60, 360, 60, 60);
         noFill();
         rect((i - 72) * 60, 360, 60, 60);
@@ -284,18 +327,26 @@ class Game {
     // row 7
     for (let i = 84; i <= 95; i++) {
       if (this.map[i].type == "water") {
+        this.map[i].xposition = (i - 84) * 60;
+        this.map[i].yposition = 420;
         image(this.waterImage, (i - 84) * 60, 420, 60, 60);
         noFill();
         rect((i - 84) * 60, 420, 60, 60);
       } else if (this.map[i].type == "land") {
+        this.map[i].xposition = (i - 84) * 60;
+        this.map[i].yposition = 420;
         image(this.landImage, (i - 84) * 60, 420, 60, 60);
         noFill();
         rect((i - 84) * 60, 420, 60, 60);
       } else if (this.map[i].type == "mountain") {
+        this.map[i].xposition = (i - 84) * 60;
+        this.map[i].yposition = 420;
         image(this.mountainImage, (i - 84) * 60, 420, 60, 60);
         noFill();
         rect((i - 84) * 60, 420, 60, 60);
       } else if (this.map[i].type == "forest") {
+        this.map[i].xposition = (i - 84) * 60;
+        this.map[i].yposition = 420;
         image(this.forestImage, (i - 84) * 60, 420, 60, 60);
         noFill();
         rect((i - 84) * 60, 420, 60, 60);
@@ -305,10 +356,14 @@ class Game {
     // row 8
     for (let i = 96; i <= 107; i++) {
       if (this.map[i].type == "water") {
+        this.map[i].xposition = (i - 96) * 60;
+        this.map[i].yposition = 480;
         image(this.waterImage, (i - 96) * 60, 480, 60, 60);
         noFill();
         rect((i - 96) * 60, 480, 60, 60);
       } else if (this.map[i].type == "land") {
+        this.map[i].xposition = (i - 96) * 60;
+        this.map[i].yposition = 480;
         image(this.landImage, (i - 96) * 60, 480, 60, 60);
         noFill();
         rect((i - 96) * 60, 480, 60, 60);
@@ -318,10 +373,14 @@ class Game {
     // row 9
     for (let i = 108; i <= 119; i++) {
       if (this.map[i].type == "water") {
+        this.map[i].xposition = (i - 108) * 60;
+        this.map[i].yposition = 540;
         image(this.waterImage, (i - 108) * 60, 540, 60, 60);
         noFill();
         rect((i - 108) * 60, 540, 60, 60);
       } else if (this.map[i].type == "land") {
+        this.map[i].xposition = (i - 108) * 60;
+        this.map[i].yposition = 540;
         image(this.landImage, (i - 108) * 60, 540, 60, 60);
         noFill();
         rect((i - 108) * 60, 540, 60, 60);
@@ -331,10 +390,14 @@ class Game {
     // row 10
     for (let i = 120; i <= 131; i++) {
       if (this.map[i].type == "water") {
+        this.map[i].xposition = (i - 120) * 60;
+        this.map[i].yposition = 600;
         image(this.waterImage, (i - 120) * 60, 600, 60, 60);
         noFill();
         rect((i - 120) * 60, 600, 60, 60);
       } else if (this.map[i].type == "land") {
+        this.map[i].xposition = (i - 120) * 60;
+        this.map[i].yposition = 600;
         image(this.landImage, (i - 120) * 60, 600, 60, 60);
         noFill();
         rect((i - 120) * 60, 600, 60, 60);
@@ -343,6 +406,8 @@ class Game {
 
     // row 11
     for (let i = 132; i <= 143; i++) {
+      this.map[i].xposition = (i - 132) * 60;
+      this.map[i].yposition = 660;
       image(this.waterImage, (i - 132) * 60, 660, 60, 60);
       noFill();
       rect((i - 132) * 60, 660, 60, 60);
