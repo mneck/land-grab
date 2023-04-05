@@ -4,21 +4,18 @@ class Player1 {
   }
   //draws Player1 Farms & Settlements
   build() {
+    this.tile;
     let cursorPosition = [mouseX, mouseY];
 
     // if (mouseX <= this.tile.land.xposition && mouseX >=)
     function mouseClicked(event) {
-      console.log(mouseX, mouseY);
+      if (mouseX < 60 && mouseY < 60) {
+        console.log("first tile!");
+      }
     }
-
     mouseClicked();
   }
 }
-/* dist between (mouseX, mouseY, tile[i].xposition, tile[i].yposition
-    if ( mouseX === this.tile.xPosition && mouseY )
-    
-
-      */
 
 //button click for Player1
 // if (mouseButton === LEFT) {
@@ -53,6 +50,12 @@ class Player1 {
 //     rightPressed = false;
 //   }
 // }
+
+/* dist between (mouseX, mouseY, tile[i].xposition, tile[i].yposition
+    if ( mouseX === this.tile.xPosition && mouseY )
+    
+
+      */
 
 //     if (mouseButton === LEFT && this.tile.land) {
 //       leftPressed = true;
