@@ -1,15 +1,3 @@
-// class Players {
-//   constructor(col, row) {
-//     this.col = col;
-//     this.row = row;
-//     this.score = 0;
-//     this.image;
-//   }
-// }
-
-// builds mining settlements & farms
-// mining settlements get +1 income from
-// adjacent mountain & forest tiles
 class Player1 {
   constructor() {
     this.col = 100;
