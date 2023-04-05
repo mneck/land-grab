@@ -6,8 +6,8 @@ let tiles = {
     charmValue: 0,
     industryValue: 0,
     incomeGenerated: 0,
-    xposition: 0,
-    yposition: 0,
+    x: 0,
+    y: 0,
   },
   water: {
     type: "water",
@@ -16,8 +16,8 @@ let tiles = {
     charmValue: 0,
     industryValue: 0,
     incomeGenerated: 0,
-    xposition: 0,
-    yposition: 0,
+    x: 0,
+    y: 0,
     // adds 1 charm to adjacent tiles
   },
   mountain: {
@@ -27,8 +27,8 @@ let tiles = {
     charmValue: 0,
     industryValue: 0,
     incomeGenerated: 0,
-    xposition: 0,
-    yposition: 0,
+    x: 0,
+    y: 0,
     // adds 1 charm & 1 industry to adjacent tiles
   },
   forest: {
@@ -38,8 +38,8 @@ let tiles = {
     charmValue: 0,
     industryValue: 0,
     incomeGenerated: 0,
-    xposition: 0,
-    yposition: 0,
+    x: 0,
+    y: 0,
     // adds 1 industry to adjacent tiles
   },
   player1Farm: {
@@ -49,8 +49,8 @@ let tiles = {
     charmValue: 0,
     industryValue: 0,
     incomeGenerated: 0,
-    xposition: 0,
-    yposition: 0,
+    x: 0,
+    y: 0,
   },
   player2Farm: {
     type: "farm2",
@@ -59,8 +59,8 @@ let tiles = {
     charmValue: 0,
     industryValue: 0,
     incomeGenerated: 0,
-    xposition: 0,
-    yposition: 0,
+    x: 0,
+    y: 0,
   },
   mine: {
     type: "mine",
@@ -69,8 +69,8 @@ let tiles = {
     charmValue: 0,
     industryValue: 0,
     incomeGenerated: 1,
-    xposition: 0,
-    yposition: 0,
+    x: 0,
+    y: 0,
   },
   resort: {
     type: "resort",
@@ -79,7 +79,7 @@ let tiles = {
     charmValue: 0,
     industryValue: 0,
     incomeGenerated: 1,
-    xposition: 0,
-    yposition: 0,
+    x: 0,
+    y: 0,
   },
 };

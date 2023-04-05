@@ -12,3 +12,12 @@ function setup() {
 function draw() {
   game.drawMap();
 }
+
+function mouseClicked(event) {
+  console.log(mouseX, mouseY);
+}
+
+const div = document.getElementById("myDiv");
+div.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+});
