@@ -8,7 +8,7 @@ class Game {
     this.randomizer = this.randomNumbersArray();
     this.player1 = new Player1();
     this.player2 = new Player2();
-    this.tile = new Tiles();
+    this.tile = tiles;
     // this.gridArray = this.gridArray();
   }
 
@@ -24,14 +24,152 @@ class Game {
   }
 
   gridArray() {
-    let grid = [];
-    this.tile.type = water;
-    for (let i = 0; i < 12; i += 1) {
-      grid.push(this.tile.type);
-      console.log(grid);
+    function landWater() {
+      let r = Math.random();
+      if (r < 0.5) {
+        return this.tile.water;
+      } else {
+        return this.tile.land;
+      }
     }
-    console.log(grid);
-    return grid;
+
+    function mountainLandForest() {
+      let r = Math.random();
+      if (r < 0.4) {
+        return this.tile.land;
+      } else if (r < 0.8) {
+        return this.tile.forest;
+      } else {
+        return this.tile.mountain;
+      }
+    }
+
+    function mountainForest() {
+      let r = Math.random();
+      if (r < 0.5) {
+        return this.tile.mountain;
+      } else {
+        return this.tile.forest;
+      }
+    }
+
+    let grid = [];
+
+    // row 0: elements 0-11
+    for (let i = 0; i <= 11; i++) {
+      grid.push(this.tile.water);
+    }
+
+    // row 1: elements 12-23
+    grid.push(this.tile.water);
+    for (let i = 0; i <= 9; i++) {
+      grid.push(landWater());
+    }
+    grid.push(this.tile.water);
+
+    // row 2: elements 24-35
+    grid.push(this.tile.water);
+    grid.push(landWater());
+    for (let i = 0; i <= 7; i++) {
+      grid.push(this.tile.land);
+    }
+    grid.push(landWater());
+    grid.push(this.tile.water);
+
+    // row 3: elements 36-47
+    grid.push(this.tile.water);
+    grid.push(landWater());
+    for (let i = 0; i <= 7; i++) {
+      grid.push(this.tile.land);
+    }
+    grid.push(landWater());
+    grid.push(this.tile.water);
+
+    // row 4: elements 48-59
+    grid.push(this.tile.water);
+    grid.push(landWater());
+    grid.push(this.tile.land);
+    grid.push(this.tile.land);
+    for (let i = 0; i <= 3; i++) {
+      grid.push(mountainLandForest());
+    }
+    grid.push(this.tile.land);
+    grid.push(this.tile.land);
+    grid.push(landWater());
+    grid.push(this.tile.water);
+
+    // row 5: elements 60-71
+    grid.push(this.tile.water);
+    grid.push(landWater());
+    grid.push(this.tile.land);
+    grid.push(this.tile.land);
+    grid.push(mountainLandForest());
+    grid.push(mountainForest());
+    grid.push(mountainForest());
+    grid.push(mountainLandForest());
+    grid.push(this.tile.land);
+    grid.push(this.tile.land);
+    grid.push(landWater());
+    grid.push(this.tile.land);
+
+    // row 6: elements 72-83
+    grid.push(this.tile.water);
+    grid.push(landWater());
+    grid.push(this.tile.land);
+    grid.push(this.tile.land);
+    grid.push(mountainLandForest());
+    grid.push(mountainForest());
+    grid.push(mountainForest());
+    grid.push(mountainLandForest());
+    grid.push(this.tile.land);
+    grid.push(this.tile.land);
+    grid.push(landWater());
+    grid.push(this.tile.land);
+
+    // row 7: elements 84-95
+    grid.push(this.tile.water);
+    grid.push(landWater());
+    grid.push(this.tile.land);
+    grid.push(this.tile.land);
+    for (let i = 0; i <= 3; i++) {
+      grid.push(mountainLandForest());
+    }
+    grid.push(this.tile.land);
+    grid.push(this.tile.land);
+    grid.push(landWater());
+    grid.push(this.tile.water);
+
+    // row 8: elements 96-107
+    grid.push(this.tile.water);
+    grid.push(landWater());
+    for (let i = 0; i <= 7; i++) {
+      grid.push(this.tile.land);
+    }
+    grid.push(landWater());
+    grid.push(this.tile.water);
+
+    // row 9: elements 108-119
+    grid.push(this.tile.water);
+    grid.push(landWater());
+    for (let i = 0; i <= 7; i++) {
+      grid.push(this.tile.land);
+    }
+    grid.push(landWater());
+    grid.push(this.tile.water);
+
+    // row 10: elements 120-131
+    grid.push(this.tile.water);
+    for (let i = 0; i <= 9; i++) {
+      grid.push(landWater());
+    }
+    grid.push(this.tile.water);
+
+    // row 11: elements 132-144
+    for (let i = 0; i <= 11; i++) {
+      grid.push(this.tile.water);
+    }
+
+    return map;
   }
 
   randomNumbersArray() {
@@ -70,11 +208,12 @@ class Game {
 
   drawMap() {
     clear();
-    // this.gridArray;
+    this.gridArray();
     // 12x12 borders of water tiles
     for (let i = 0; i <= 12; i += 1) {
       strokeWeight(2);
 
+      this.gridArray();
       this.gridArray;
 
       image(this.waterImage, i * 100, 0, 100, 100);
