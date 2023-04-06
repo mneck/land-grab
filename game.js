@@ -360,7 +360,24 @@ class Game {
         let yValue = Math.floor(index / 12) * 60;
         image(this.resortImage, xValue, yValue, 60, 60);
       }
+      if (tile.building === "player1farm") {
+        let xValue = Math.floor(index % 12) * 60;
+        let yValue = Math.floor(index / 12) * 60;
+        image(this.player1FarmImage, xValue, yValue, 60, 60);
+      }
+      if (tile.building === "player2farm") {
+        let xValue = Math.floor(index % 12) * 60;
+        let yValue = Math.floor(index / 12) * 60;
+        image(this.player2FarmImage, xValue, yValue, 60, 60);
+      }
     });
+
+    // game.map[el].type === "mine" ||
+    // game.map[el].type === "water" ||
+    // game.map[el].type === "mountain" ||
+    // game.map[el].type === "resort" ||
+    // game.map[el].type === "player1farm" ||
+    // game.map[el].type === "player2farm"
 
     // let el = Math.floor(mouseY / 60) * 12 + Math.floor(mouseX / 60);
     // 60, 60 => 13
