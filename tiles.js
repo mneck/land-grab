@@ -8,6 +8,10 @@ let tiles = {
     incomeGenerated: 0,
     x: 0,
     y: 0,
+    objMethod: function (event) {
+      console.log(event);
+      this.type;
+    },
   },
   water: {
     type: "water",

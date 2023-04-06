@@ -15,11 +15,19 @@ function draw() {
 
 function mouseClicked(event) {
   console.log(mouseX, mouseY);
+  console.log(event);
+  /*
+if ((event.offSetX < 0 || ent.offSetX > 59) && (event.offSetY < 0 || ent.offSetY > 59))
+*/
+
+  //left click = button: 0
+  //right click = button: 2
 }
 
-const div = document.getElementById("canvasDiv");
-div.addEventListener("contextmenu", (e) => {
+const rightClickBlocked = document.getElementById("canvasDiv");
+rightClickBlocked.addEventListener("contextmenu", (e) => {
   e.preventDefault();
+  console.log("right click", e);
 });
 
 function toggleFunction() {
