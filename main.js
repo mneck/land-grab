@@ -13,22 +13,32 @@ function draw() {
   game.drawMap();
 }
 
+const div = document.getElementById("canvasDiv");
+div.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+  console.log("right click");
+  console.log(game.map);
+  // console.log(game.map[10].y);
+});
+
 function mouseClicked(event) {
   console.log(mouseX, mouseY);
-  console.log(event);
+  // console.log(event);
+
+  // console.log(event);
+  // console.log("TENTH ELEMENT", game.map[9].x);
+  // console.log("FIRST", game.map[0].x);
+  // console.log("FIRST Y", game.map[0].y);
+  // console.log(game.map[0].type);
+  // console.log(game.map[13].type, game.map[22].type);
+
   /*
-if ((event.offSetX < 0 || ent.offSetX > 59) && (event.offSetY < 0 || ent.offSetY > 59))
+if (event.offSetX < 0 || ent.offSetX > 59 
 */
 
-  //left click = button: 0
   //right click = button: 2
+  //left click = button: 0
 }
-
-const rightClickBlocked = document.getElementById("canvasDiv");
-rightClickBlocked.addEventListener("contextmenu", (e) => {
-  e.preventDefault();
-  console.log("right click", e);
-});
 
 function toggleFunction() {
   let x = document.getElementById("myToggle");

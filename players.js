@@ -3,18 +3,19 @@ class Player1 {
     this.tile = tiles;
   }
   //draws Player1 Farms & Settlements
-  build() {
-    this.tile;
-    let cursorPosition = [mouseX, mouseY];
+  // build() {
+  //   console.log("this tile");
 
-    // if (mouseX <= this.tile.land.xposition && mouseX >=)
-    function mouseClicked(event) {
-      if (mouseX < 60 && mouseY < 60) {
-        console.log("first tile!");
-      }
-    }
-    mouseClicked();
-  }
+  // this.tile;
+  // let cursorPosition = [mouseX, mouseY];
+
+  // // if (mouseX <= this.tile.land.xposition && mouseX >=)
+  // function mouseClicked(event) {
+  //   if (mouseX < 60 && mouseY < 60) {
+  //     console.log("first tile!");
+  //   }
+  // }
+  // }
 }
 
 //button click for Player1

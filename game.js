@@ -1,3 +1,5 @@
+let grid = [];
+
 class Game {
   constructor() {
     this.col = 0;
@@ -19,6 +21,17 @@ class Game {
     this.player1FarmImage = loadImage("./assets/7player1_farm.png");
     this.player2FarmImage = loadImage("./assets/8player2_farm.png");
   }
+
+  // updateTileImages() {
+  //   this.tile.water.image = this.waterImage.resize(60,60);
+  //   this.tile.land.image = this.landImage.resize(60,60);
+  //   this.tile.mountain.image = this.mountainImage.resize(60,60);
+  //   this.tile.forest.image = this.forestImage.resize(60,60);
+  //   this.tile.mine.image = this.mineImage.resize(60,60);
+  //   this.tile.resort.image = this.resortImage.resize(60,60);
+  //   this.tile.player1Farm.image = this.player1FarmImage.resize(60,60);
+  //   this.tile.player2Farm.image = this.player2FarmImage.resize(60,60);
+  // }
 
   landWater() {
     let r = Math.random();
@@ -50,11 +63,12 @@ class Game {
   }
 
   gridArray() {
-    let grid = [];
-
     // row 0: elements 0-11
     for (let i = 0; i <= 11; i++) {
-      grid.push(this.tile.water);
+      let tile = new Tile("land", 0, 0);
+      tile.x = grid.push(this.tile.water);
+      this.tile.x = i * 60;
+      this.tile.y = 0;
     }
 
     // row 1: elements 12-23
@@ -165,13 +179,12 @@ class Game {
     for (let i = 0; i <= 11; i++) {
       grid.push(this.tile.water);
     }
-
+    console.log(grid);
     return grid;
   }
 
   drawMap() {
     clear();
-    // this.player2.build();
     // row 0
     for (let i = 0; i <= 11; i++) {
       this.map[i].x = i * 60;
@@ -400,12 +413,12 @@ class Game {
     }
 
     // row 11
-    for (let i = 132; i <= 143; i++) {
-      this.map[i].x = (i - 132) * 60;
-      this.map[i].y = 660;
-      image(this.waterImage, (i - 132) * 60, 660, 60, 60);
-      noFill();
-      rect((i - 132) * 60, 660, 60, 60);
-    }
+    // for (let i = 132; i <= 143; i++) {
+    //   this.map[i].x = (i - 132) * 60;
+    //   this.map[i].y = 660;
+    //   image(this.waterImage, (i - 132) * 60, 660, 60, 60);
+    //   noFill();
+    //   rect((i - 132) * 60, 660, 60, 60);
+    // }
   }
 }
