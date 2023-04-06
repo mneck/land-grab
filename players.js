@@ -1,6 +1,6 @@
 class Player1 {
   constructor() {
-    this.tile = tiles;
+    // this.tile = tiles;
   }
   //draws Player1 Farms & Settlements
   // build() {

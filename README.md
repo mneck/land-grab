@@ -16,7 +16,10 @@ The map is a 12x12 grid. The edges of the map are water tiles. The 11x11 border 
 
 #### Map template
 
-> `W = Water` >`L = Land` >`M = Mountain` >`F = Forest`
+`W = Water`
+`L = Land`
+`M = Mountain`
+`F = Forest`
 
 ![Template of map](/assets/map_template.png)
 

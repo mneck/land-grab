@@ -1,15 +1,17 @@
 class Tile {
   constructor(type, x, y) {
     this.type = type;
-    // this.canBeBuiltOn =
-    // playerBuilt: false,
-    // charmValue: 0,
-    // industryValue: 0,
-    // incomeGenerated: 0,
     this.x = x;
     this.y = y;
   }
 }
+
+// this.canBeBuiltOn =
+// playerBuilt: false,
+// charmValue: 0,
+// industryValue: 0,
+// incomeGenerated: 0,
+
 //  {
 //   land = {
 //     type: "land",
