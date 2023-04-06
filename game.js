@@ -12,14 +12,14 @@ class Game {
   }
 
   preload() {
-    this.waterImage = loadImage("./assets/1water_tile.png");
-    this.landImage = loadImage("./assets/2land_tile.png");
-    this.mountainImage = loadImage("./assets/3mountain_tile.png");
-    this.forestImage = loadImage("./assets/4forest_tile.png");
-    this.mineImage = loadImage("./assets/5mine_tile.png");
-    this.resortImage = loadImage("./assets/6resort_tile.png");
-    this.player1FarmImage = loadImage("./assets/7player1_farm.png");
-    this.player2FarmImage = loadImage("./assets/8player2_farm.png");
+    this.waterImage = loadImage("assets/1water_tile.png");
+    this.landImage = loadImage("assets/2land_tile.png");
+    this.mountainImage = loadImage("assets/3mountain_tile.png");
+    this.forestImage = loadImage("assets/4forest_tile.png");
+    this.mineImage = loadImage("assets/5mine_tile.png");
+    this.resortImage = loadImage("assets/6resort_tile.png");
+    this.player1FarmImage = loadImage("assets/7player1_farm.png");
+    this.player2FarmImage = loadImage("assets/8player2_farm.png");
   }
 
   landWater() {
