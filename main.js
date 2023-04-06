@@ -1,3 +1,7 @@
+let playerTurn = 1;
+let player1income = 0;
+let player2income = 0;
+
 const game = new Game();
 
 function preload() {
@@ -11,30 +15,68 @@ function setup() {
 
 function draw() {
   game.drawMap();
+  game.drawChanges();
 }
 
-const div = document.getElementById("canvasDiv");
-div.addEventListener("contextmenu", (e) => {
+document.getElementById("canvasDiv").addEventListener("contextmenu", (e) => {
   e.preventDefault();
+  let el = Math.floor(mouseY / 60) * 12 + Math.floor(mouseX / 60);
+
+  if (
+    game.map[el].type === "mine" ||
+    game.map[el].type === "water" ||
+    game.map[el].type === "mountain" ||
+    game.map[el].type === "resort" ||
+    game.map[el].type === "player1farm" ||
+    game.map[el].type === "player2farm"
+  ) {
+    return;
+  }
+
+  if (playerTurn === 1) {
+    playerTurn = 2;
+  } else {
+    playerTurn = 1;
+  }
   console.log("right click");
-  console.log(game.map);
-  // console.log(game.map[10].y);
+  game.map[el].building = "mine";
 });
 
 function mouseClicked(event) {
-  console.log(mouseX, mouseY);
-  // console.log(event);
+  let el = Math.floor(mouseY / 60) * 12 + Math.floor(mouseX / 60);
 
-  // console.log(event);
-  // console.log("TENTH ELEMENT", game.map[9].x);
-  // console.log("FIRST", game.map[0].x);
-  // console.log("FIRST Y", game.map[0].y);
-  // console.log(game.map[0].type);
-  // console.log(game.map[13].type, game.map[22].type);
+  if (
+    game.map[el].type === "mine" ||
+    game.map[el].type === "water" ||
+    game.map[el].type === "mountain" ||
+    game.map[el].type === "resort" ||
+    game.map[el].type === "player1farm" ||
+    game.map[el].type === "player2farm"
+  ) {
+    return;
+  }
 
-  /*
-if (event.offSetX < 0 || ent.offSetX > 59 
-*/
+  game.map[el].building = "resort";
+
+  if (playerTurn === 1) {
+    player1income++;
+  }
+
+  if (playerTurn === 1) {
+    playerTurn = 2;
+  } else {
+    playerTurn = 1;
+  }
+
+  console.log(player1income);
+  console.log(playerTurn, "player turn");
+
+  if (mouseX > 720 || mouseY > 720) return;
+  // if (event) {
+  //   playerTurn = true;
+  // }
+
+  // tile type changed to resort or mine
 
   //right click = button: 2
   //left click = button: 0

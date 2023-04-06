@@ -347,4 +347,31 @@ class Game {
       rect((i - 132) * 60, 660, 60, 60);
     }
   }
+
+  drawChanges() {
+    this.map.forEach((tile, index) => {
+      if (tile.building === "mine") {
+        let xValue = Math.floor(index % 12) * 60;
+        let yValue = Math.floor(index / 12) * 60;
+        image(this.mineImage, xValue, yValue, 60, 60);
+      }
+      if (tile.building === "resort") {
+        let xValue = Math.floor(index % 12) * 60;
+        let yValue = Math.floor(index / 12) * 60;
+        image(this.resortImage, xValue, yValue, 60, 60);
+      }
+    });
+
+    // let el = Math.floor(mouseY / 60) * 12 + Math.floor(mouseX / 60);
+    // 60, 60 => 13
+    // 120, 60 => 14
+    // 180, 60 => 15
+    // 240, 60 => 16
+    //   : 2 = 13
+
+    // this.mineImage = loadImage("assets/5mine_tile.png");
+    // this.resortImage = loadImage("assets/6resort_tile.png");
+    // this.player1FarmImage = loadImage("assets/7player1_farm.png");
+    // this.player2FarmImage = loadImage("assets/8player2_farm.png");
+  }
 }
