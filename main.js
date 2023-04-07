@@ -118,6 +118,7 @@ function mouseClicked(event) {
       player2Score += player2Income;
     }
   }
+
   console.log("Player 1 score: ", player1Score);
   console.log("Player 2 score: ", player2Score);
   if (player1Score >= 100) {
