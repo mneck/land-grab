@@ -1,6 +1,9 @@
 let playerTurn = 1;
-let player1income = 0;
-let player2income = 0;
+let player1Income = 0;
+let player2Income = 0;
+
+let player1Score = 0;
+let player2Score = 0;
 
 let player1FarmCount = 0;
 let player2FarmCount = 0;
@@ -41,7 +44,6 @@ document.getElementById("canvasDiv").addEventListener("contextmenu", (e) => {
   }
 
   if (playerTurn % 2 === 1) {
-    console.log("player 1 turn, miner", player1FarmCount, player1TownCount);
     game.map[el].building = "player1farm";
     player1FarmCount++;
   } else {
@@ -50,9 +52,6 @@ document.getElementById("canvasDiv").addEventListener("contextmenu", (e) => {
   }
 
   playerTurn++;
-
-  console.log(playerTurn);
-  console.log("right click");
 });
 
 //left click functions => builds towns
@@ -63,10 +62,6 @@ function mouseClicked(event) {
     console.log("failed to click on canvas!", mouseX, mouseY);
     return;
   }
-  console.log("player 1 farm count", player1FarmCount);
-  console.log("player 1 town count", player1TownCount);
-  console.log("player 2 farm count", player2FarmCount);
-  console.log("player 2 town count", player2TownCount);
 
   if (
     game.map[el].type === "water" ||
@@ -87,31 +82,52 @@ function mouseClicked(event) {
   if (playerTurn % 2 === 0 && player2FarmCount - player2TownCount <= 0) {
     return;
   }
-  // console.log("blocked", {
-  //   cond1: player1FarmCount - player1TownCount <= 0,
-  //   cond2: player2FarmCount - player2TownCount <= 0,
-  // });
 
   if (playerTurn % 2 === 1) {
     game.map[el].building = "mine";
     player1TownCount++;
+    player1Income++;
+    if (
+      game.map[el + 1].type === "mountain" ||
+      game.map[el - 1].type === "mountain" ||
+      game.map[el + 12].type === "mountain" ||
+      game.map[el - 12].type === "mountain" ||
+      game.map[el + 1].type === "forest" ||
+      game.map[el - 1].type === "forest" ||
+      game.map[el + 12].type === "forest" ||
+      game.map[el - 12].type === "forest"
+    ) {
+      player1Income++;
+      player1Score += player1Income;
+    }
   } else {
     game.map[el].building = "resort";
     player2TownCount++;
+    player2Income++;
+    if (
+      game.map[el + 1].type === "mountain" ||
+      game.map[el - 1].type === "mountain" ||
+      game.map[el + 12].type === "mountain" ||
+      game.map[el - 12].type === "mountain" ||
+      game.map[el + 1].type === "water" ||
+      game.map[el - 1].type === "water" ||
+      game.map[el + 12].type === "water" ||
+      game.map[el - 12].type === "water"
+    ) {
+      player2Income++;
+      player2Score += player2Income;
+    }
+  }
+  console.log("Player 1 score: ", player1Score);
+  console.log("Player 2 score: ", player2Score);
+  if (player1Score >= 100) {
+    console.log("Player 1 wins!");
+  }
+  if (player2Score >= 100) {
+    console.log("Player 2 wins!");
   }
 
   playerTurn++;
-
-  // if (playerTurn === 1) {
-  //   player1income += 1; // need to include variable for new income
-  // } else {
-  //   player2income += 1;
-  // }
-
-  // console.log(player1income);
-  // console.log(playerTurn, "player turn");
-
-  console.log(mouseX, mouseY);
 }
 
 function toggleFunction() {
