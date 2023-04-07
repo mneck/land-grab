@@ -30,12 +30,12 @@ document.getElementById("canvasDiv").addEventListener("contextmenu", (e) => {
   let el = Math.floor(mouseY / 60) * 12 + Math.floor(mouseX / 60);
 
   if (
-    game.map[el].type === "mine" ||
     game.map[el].type === "water" ||
     game.map[el].type === "mountain" ||
-    game.map[el].type === "resort" ||
-    game.map[el].type === "player1farm" ||
-    game.map[el].type === "player2farm"
+    game.map[el].building === "mine" ||
+    game.map[el].building === "resort" ||
+    game.map[el].building === "player1farm" ||
+    game.map[el].building === "player2farm"
   ) {
     return;
   }
@@ -69,17 +69,28 @@ function mouseClicked(event) {
   console.log("player 2 town count", player2TownCount);
 
   if (
-    game.map[el].type === "mine" ||
     game.map[el].type === "water" ||
     game.map[el].type === "mountain" ||
-    game.map[el].type === "resort" ||
-    game.map[el].type === "player1farm" ||
-    game.map[el].type === "player2farm" ||
-    player1FarmCount - 1 < player1TownCount ||
-    player2FarmCount < player2TownCount
+    game.map[el].building === "mine" ||
+    game.map[el].building === "resort" ||
+    game.map[el].building === "player1farm" ||
+    game.map[el].building === "player2farm" ||
+    player1FarmCount === 0 ||
+    player2FarmCount === 0
   ) {
     return;
   }
+
+  if (playerTurn % 2 === 1 && player1FarmCount - player1TownCount <= 0) {
+    return;
+  }
+  if (playerTurn % 2 === 0 && player2FarmCount - player2TownCount <= 0) {
+    return;
+  }
+  // console.log("blocked", {
+  //   cond1: player1FarmCount - player1TownCount <= 0,
+  //   cond2: player2FarmCount - player2TownCount <= 0,
+  // });
 
   if (playerTurn % 2 === 1) {
     game.map[el].building = "mine";
