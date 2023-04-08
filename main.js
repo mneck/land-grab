@@ -87,48 +87,85 @@ function mouseClicked(event) {
     game.map[el].building = "mine";
     player1TownCount++;
     player1Income++;
+
     if (
       game.map[el + 1].type === "mountain" ||
+      game.map[el + 1].type === "forest"
+    ) {
+      player1Income++;
+    }
+    if (
       game.map[el - 1].type === "mountain" ||
+      game.map[el - 1].type === "forest"
+    ) {
+      player1Income++;
+    }
+    if (
       game.map[el + 12].type === "mountain" ||
+      game.map[el + 12].type === "forest"
+    ) {
+      player1Income++;
+    }
+    if (
       game.map[el - 12].type === "mountain" ||
-      game.map[el + 1].type === "forest" ||
-      game.map[el - 1].type === "forest" ||
-      game.map[el + 12].type === "forest" ||
       game.map[el - 12].type === "forest"
     ) {
       player1Income++;
-      player1Score += player1Income;
     }
+
+    player1Score += player1Income;
+    playerTurn++;
   } else {
     game.map[el].building = "resort";
     player2TownCount++;
     player2Income++;
+
     if (
       game.map[el + 1].type === "mountain" ||
-      game.map[el - 1].type === "mountain" ||
-      game.map[el + 12].type === "mountain" ||
-      game.map[el - 12].type === "mountain" ||
-      game.map[el + 1].type === "water" ||
+      game.map[el + 1].type === "water"
+    ) {
+      player2Income++;
+    }
+    if (
       game.map[el - 1].type === "water" ||
-      game.map[el + 12].type === "water" ||
+      game.map[el - 1].type === "mountain"
+    ) {
+      player2Income++;
+    }
+    if (
+      game.map[el + 12].type === "mountain" ||
+      game.map[el + 12].type === "water"
+    ) {
+      player2Income++;
+    }
+    if (
+      game.map[el - 12].type === "mountain" ||
       game.map[el - 12].type === "water"
     ) {
       player2Income++;
-      player2Score += player2Income;
     }
-  }
 
-  console.log("Player 1 score: ", player1Score);
-  console.log("Player 2 score: ", player2Score);
+    player2Score += player2Income;
+    playerTurn++;
+  }
+  console.log(
+    "Player 1 score: ",
+    player1Score,
+    " | Player 1 income:",
+    player1Income
+  );
+  console.log(
+    "Player 2 score: ",
+    player2Score,
+    " | Player 2 income:",
+    player2Income
+  );
   if (player1Score >= 100) {
     console.log("Player 1 wins!");
   }
   if (player2Score >= 100) {
     console.log("Player 2 wins!");
   }
-
-  playerTurn++;
 }
 
 function toggleFunction() {
